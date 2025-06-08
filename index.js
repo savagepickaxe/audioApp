@@ -1,6 +1,6 @@
-import express from 'express';
-import fetch from 'node-fetch';
-import cheerio from 'cheerio';
+const express = require('express');
+const cheerio = require('cheerio');
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,7 +22,7 @@ app.get('/videos', async (req, res) => {
 
     res.json([...videoIds]);
   } catch (err) {
-    res.status(500).send('Erreur lors du scraping.');
+    res.status(500).send('Erreur scraping');
   }
 });
 

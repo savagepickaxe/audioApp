@@ -1,9 +1,7 @@
 {
   "name": "scraper-server",
   "version": "1.0.0",
-  "description": "Backend scraping YouTube channel InspiredByFlorian",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
