@@ -5,6 +5,14 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ✅ Middleware CORS (fix Vercel)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Autorise tous les domaines
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.get('/videos', async (req, res) => {
   try {
     const response = await fetch('https://www.youtube.com/@inspiredByFlorian/videos');
