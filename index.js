@@ -37,3 +37,4 @@ app.get('/videos', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Scraper running on port ${PORT}`);
 });
+console.log("CORS PATCH ACTIVE");
